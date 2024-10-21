@@ -1,33 +1,20 @@
-import { Fragment, useState } from "react";
 import "./App.css";
-
 import city from "./assets/city.jpg";
 import CarDetails from "./components/CarDetails";
-import ChangeMessageState from "./components/ChangeMessageState";
 import ConditionalRender from "./components/ConditionalRender";
-import Container from "./components/Container";
-import ExecuteFunction from "./components/ExecuteFunction";
 import ListRender from "./components/ListRender";
 import ManageData from "./components/ManageData";
-import MessageState from "./components/MessageState";
 import ShowUserName from "./components/ShowUserName";
+import Fragment from "./components/Fragment";
+import Container from "./components/Container";
 
 function App() {
+
   const cars = [
     { id: 1, brand: "Ferrari", color: "Amarelo", newCar: true, km: 0 },
     { id: 2, brand: "KIA", color: "Branco", newCar: true, km: 200000 },
     { id: 3, brand: "Renault", color: "Azul", newCar: true, km: 32000 },
   ];
-
-  function showMessage() {
-    console.log("Evento do componente pai");
-  }
-
-  const [message, setMessage] = useState();
-
-  const handleMessage = (msg) => {
-    setMessage(msg);
-  };
 
   return (
     <div className="App">
@@ -55,6 +42,15 @@ function App() {
           newCar={car.newCar}
         />
       ))}
+      {/* Fragment */}
+      <Fragment propFragment="teste" />
+      {/* Children */}
+      <Container myValue="teste 1">
+        <p>E este é o conteúdo</p>
+      </Container>
+      <Container myValue="Teste 2">
+        <p>Este é o conteudo 2</p>
+      </Container>
     </div>
   );
 }
